@@ -32,11 +32,17 @@ const TableComponent = () => {
 const FormComponent = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
+    const formData = new FormData(event.target);
+
     // Handle form submission logic here
+    const name = formData.get('name');
+    const email = formData.get('email');
+    console.log("Name:", name);
+    console.log("Email:", email);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} method="GET">
       <label>
         Name:
         <br />
